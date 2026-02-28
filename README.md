@@ -279,7 +279,6 @@ Handlebars (or its Mustache subset) has significant adoption in the AI/agent eco
 
 - [**Microsoft Semantic Kernel**](https://learn.microsoft.com/en-us/semantic-kernel/concepts/prompts/handlebars-prompt-templates) uses Handlebars as its primary prompt template format. Their [architecture decision record](https://github.com/microsoft/semantic-kernel/blob/main/docs/decisions/0023-handlebars-template-engine.md) notes: *"the majority of LLMs already support the Handlebars interface when dealing with prompts, which helps improve the accuracy of the response."*
 - [**Google Genkit / Dotprompt**](https://genkit.dev/docs/dotprompt/) extends Handlebars with GenAI-specific helpers for roles, media, and structured output.
-- [**LangChain / LangSmith**](https://docs.langchain.com/langsmith/prompt-template-format) supports Mustache (the Handlebars subset) for advanced prompt templating.
 
 ### JSON Schema as the validation medium
 
