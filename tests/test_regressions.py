@@ -68,6 +68,27 @@ def test_helper_with_string_arg():
     assert env.render('{{echo "hello world"}}', {}) == 'hello world'
 
 
+def test_block_with_numeric_path_segment():
+    """Closing block tag should accept NUMBER tokens in dot-notation paths."""
+    template = '{{#items.0}}{{name}}{{/items.0}}'
+    data = {'items': [{'name': 'first'}]}
+    assert render(template, data) == 'first'
+
+
+def test_block_with_slash_separator():
+    """Closing block tag should preserve slash separators in path matching."""
+    template = '{{#a/b}}{{c}}{{/a/b}}'
+    data = {'a': {'b': {'c': 'yes'}}}
+    assert render(template, data) == 'yes'
+
+
+def test_block_with_slash_numeric_path():
+    """Closing block tag should handle slash separators with numeric segments."""
+    template = '{{#items/0}}{{name}}{{/items/0}}'
+    data = {'items': [{'name': 'first'}]}
+    assert render(template, data) == 'first'
+
+
 def test_whitespace_in_expressions():
     assert render('{{  foo  }}', {'foo': 'bar'}) == 'bar'
 
